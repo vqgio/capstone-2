@@ -1,17 +1,24 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sandwich {
-    private String size;
-    private String breadType;
-    private List<Topping> premiumToppings;
-    private List<Topping> regularToppings;
+    private SandwichSize size;
+    private BreadType breadType;
+    private List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(String size, String breadType, List<Topping> premiumToppings, List<Topping> regularToppings, boolean isToasted) {
+    public Sandwich(SandwichSize size, BreadType breadType, boolean isToasted, List<Topping> toppings) {
         this.size = size;
         this.breadType = breadType;
-        this.premiumToppings = premiumToppings;
-        this.regularToppings = regularToppings;
         this.isToasted = isToasted;
+        this.toppings = new ArrayList<>();
+    }
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
+    }
+    public double calculatePrice() {
+        double BasePrice = size.getBasePrice();
+        double toppingCost = toppings.stream().mapToDouble(t -> t.calculateCost(size)).sum();
+        return BasePrice + toppingCost;
     }
 }

@@ -1,8 +1,6 @@
-public class Order implements PriceCalc {
+public class Order {
 
-    @Override
     public double calculatePrice() {
         return 0;
     }
-
 }

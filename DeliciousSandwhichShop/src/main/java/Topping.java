@@ -33,4 +33,9 @@ public class Topping {
         return name; // NOT FINISHED DON'T FORGET TO WORK ON IT
     }
 
+    public double calculateCost(SandwichSize size) {
+        double baseCost = (type == ToppingType.PREMIUM) ? getMeatBaseCost(size) : 0.0;
+        double extraCost = (type == ToppingType.PREMIUM) ? getExtraMeatCost(size) * extraCount : 0.0;
+        return baseCost + extraCost;
+    }
 }
