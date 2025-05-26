@@ -1,20 +1,30 @@
 public class Topping {
-    private String name;
-    private ToppingType type;
-    private int extraCount;
+   private ToppingType name;
+   private int extraCount;
 
-
-    public Topping(String name, ToppingType type) {
+    public Topping(ToppingType name) {
         this.name = name;
-        this.type = type;
         this.extraCount = 0;
     }
     public void addExtra() {
-        if (type == ToppingType.PREMIUM) {
+        if(name.getQuality() != ToppingQuality.REGULAR) {
             extraCount++;
         }
     }
-    public double getMeatBaseCost(SandwichSize size) {
+    public double calculateCost(SandwichSize size) {
+        double baseCost = switch (name.getQuality()) {
+            case PREMIUM_MEAT -> getMeatBaseCost(size) * extraCount;
+            case PREMIUM_CHEESE -> getCheeseBaseCost(size) + extraCount;
+            default -> 0.0;
+        };
+        double extraCost = switch (name.getQuality()) {
+            case PREMIUM_MEAT -> getExtraMeatCost(size) * extraCount;
+            case PREMIUM_CHEESE -> getExtraCheeseCost(size) * extraCount;
+            default -> 0.0;
+        };
+        return baseCost + extraCost;
+    }
+    private double getMeatBaseCost(SandwichSize size) {
         return switch (size) {
             case SMALL -> 1.00;
             case MEDIUM -> 2.00;
@@ -28,14 +38,22 @@ public class Topping {
             case LARGE -> 1.50;
         };
     }
+    private double getCheeseBaseCost(SandwichSize size) {
+        return switch (size) {
+            case SMALL -> 0.75;
+            case MEDIUM -> 1.50;
+            case LARGE -> 2.25;
+        };
+    }
+    private double getExtraCheeseCost(SandwichSize size) {
+        return switch (size) {
+            case SMALL -> 0.30;
+            case MEDIUM -> 0.60;
+            case LARGE -> 0.90;
+        };
+    }
     @Override
     public String toString() {
-        return name; // NOT FINISHED DON'T FORGET TO WORK ON IT
-    }
-
-    public double calculateCost(SandwichSize size) {
-        double baseCost = (type == ToppingType.PREMIUM) ? getMeatBaseCost(size) : 0.0;
-        double extraCost = (type == ToppingType.PREMIUM) ? getExtraMeatCost(size) * extraCount : 0.0;
-        return baseCost + extraCost;
+        return name + (extraCount > 0 ? " (" + extraCount + " extra)" : "");
     }
 }
