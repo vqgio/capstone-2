@@ -16,4 +16,31 @@ public class Sandwich {
         this.toppings = new ArrayList<>();
         this.isToasted = isToasted;
     }
+    public void addTopping(ToppingType toppingType) {
+        toppings.add(new Topping(toppingType));
+    }
+    public void addExtraTopping(ToppingType toppingType) {
+        for (Topping topping : toppings) {
+            if(topping.getType() == toppingType) {
+                topping.addExtra();
+                return;
+            }
+        }
+    }
+
+    public SandwichSize getSize() {
+        return size;
+    }
+
+    public BreadType getBreadType() {
+        return breadType;
+    }
+
+    public List<Topping> getToppings() {
+        return new ArrayList<>(toppings);
+    }
+
+    public boolean isToasted() {
+        return isToasted;
+    }
 }
