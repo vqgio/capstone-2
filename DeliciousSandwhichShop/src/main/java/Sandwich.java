@@ -13,19 +13,8 @@ public class Sandwich {
         }
         this.size = size;
         this.breadType = breadType;
-        this.toppings = new ArrayList<>();
+        this.toppings = (toppings != null) ? new ArrayList<>(toppings) : new ArrayList<>();
         this.isToasted = isToasted;
-    }
-    public void addTopping(ToppingType toppingType) {
-        toppings.add(new Topping(toppingType));
-    }
-    public void addExtraTopping(ToppingType toppingType) {
-        for (Topping topping : toppings) {
-            if(topping.getType() == toppingType) {
-                topping.addExtra();
-                return;
-            }
-        }
     }
 
     public SandwichSize getSize() {
@@ -43,4 +32,35 @@ public class Sandwich {
     public boolean isToasted() {
         return isToasted;
     }
+    public void addTopping(ToppingType toppingType) {
+        toppings.add(new Topping(toppingType));
+    }
+    public void addExtraTopping(ToppingType toppingType) {
+        for (Topping topping : toppings) {
+            if(topping.getType() == toppingType) {
+                topping.addExtra();
+                return;
+            }
+        }
+        Topping newTopping = new Topping(toppingType);
+        newTopping.addExtra();
+        toppings.add(newTopping);
+    }
+    public double calculateCost() {
+        double basePrice = size.getBasePrice();
+        double toppingCost = toppings.stream().mapToDouble(t -> t.calculateCost(size)).sum();
+        return basePrice + toppingCost;
+    }
+    public void displayOrderDetails() {
+        System.out.println("Sandwich Size: " + size);
+        System.out.println("Bread Type: " + breadType);
+        System.out.println("Toasted: " + (isToasted ? "Yes" : "No"));
+        System.out.println("Toppings; ");
+
+        for (Topping topping : toppings) {
+            System.out.println("  " + topping);
+        }
+        System.out.println("Total: $" + calculateCost());
+    }
+
 }

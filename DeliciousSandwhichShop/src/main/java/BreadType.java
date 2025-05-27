@@ -1,3 +1,3 @@
 public enum BreadType {
-    WHiTE, WHEAT, RYE, WRAP
+    WHITE, WHEAT, RYE, WRAP
 }
