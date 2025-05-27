@@ -13,7 +13,7 @@ public class Sandwich {
         }
         this.size = size;
         this.breadType = breadType;
-        this.toppings = (toppings != null) ? new ArrayList<>(toppings) : new ArrayList<>();
+        this.toppings = (toppings != null) ? new ArrayList<>(toppings) : new ArrayList<>(); //updated to make test pass
         this.isToasted = isToasted;
     }
 
