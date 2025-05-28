@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +19,25 @@ public class Order {
         this.sandwiches = new ArrayList<>();
         this.chips =  new ArrayList<>();
         this.drinks =  new ArrayList<>();
+    }
+    public String getOrderNumber() {
+        return orderNumber;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public List<Sandwich> getSandwiches() {
+        return new ArrayList<>(sandwiches);
+    }
+
+    public List<Drink> getDrinks() {
+        return new ArrayList<>(drinks);
+    }
+
+    public List<Chips> getChips() {
+        return new ArrayList<>(chips);
     }
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
@@ -46,6 +68,14 @@ public class Order {
         return receipt.toString();
     }
     public static void saveOrder(Order order) {
-
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH,true))) {
+            writer.write(order.getOrderNumber() + "," + order.getCustomerName() + "," + order.calculatePrice());
+            writer.newLine();
+            writer.flush();
+            System.out.println("Order Saved Successfully!");
+        } catch (IOException e) {
+            System.err.println("ERROR, Saving order failed! Please try again.");
+        }
     }
+
 }
