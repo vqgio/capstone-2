@@ -57,6 +57,11 @@ public class Order {
     }
     public String generateReceipt() {
         StringBuilder receipt = new StringBuilder();
+        receipt.append("====RECIEPT====");
+        receipt.append("Gio's DELI-cious Sandwiches");
+        receipt.append("\n");
+        receipt.append("TIME");
+        receipt.append("\n");
         receipt.append("Order Number: " + orderNumber + "\n").append("Customer Name: " + customerName + "\n");
         receipt.append("Sandwiches: \n");
         sandwiches.forEach(s -> receipt.append("- ").append(s).append("\n"));
@@ -68,14 +73,9 @@ public class Order {
         return receipt.toString();
     }
     public static void saveOrder(Order order) {
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH,true))) {
-            writer.write(order.getOrderNumber() + "," + order.getCustomerName() + "," + order.calculatePrice());
-            writer.newLine();
-            writer.flush();
-            System.out.println("Order Saved Successfully!");
-        } catch (IOException e) {
-            System.err.println("ERROR, Saving order failed! Please try again.");
-        }
-    }
 
+    }
+    public static List<Order> loadOrders() {
+        List<Order> orders = new ArrayList<>();
+    }
 }
