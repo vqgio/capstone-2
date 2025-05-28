@@ -45,4 +45,7 @@ public class Order {
         receipt.append("\nTotal Price: $").append(calculatePrice());
         return receipt.toString();
     }
+    public static void saveOrder(Order order) {
+
+    }
 }
