@@ -1,4 +1,5 @@
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -13,7 +14,6 @@ public class Order {
     private List<Drink> drinks;
     private List<Chips> chips;
 
-    private static final String FILE_PATH = "receipts.csv";
 
     public Order(String orderNumber, String customerName) {
         this.orderNumber = orderNumber;
@@ -74,6 +74,7 @@ public class Order {
     }
     public static void saveReceipt() {
         String fileName = generateReceiptFileName();
+        File receiptsFolder = new File("receipts");
     }
     public static List<Order> loadOrders() {
         List<Order> orders = new ArrayList<>();
