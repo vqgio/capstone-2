@@ -1,6 +1,8 @@
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,10 +60,7 @@ public class Order {
     public String generateReceipt() {
         StringBuilder receipt = new StringBuilder();
         receipt.append("====RECIEPT====");
-        receipt.append("Gio's DELI-cious Sandwiches");
-        receipt.append("\n");
-        receipt.append("TIME");
-        receipt.append("\n");
+        receipt.append("Gio's DELI-cious Sandwiches\n\n");
         receipt.append("Order Number: " + orderNumber + "\n").append("Customer Name: " + customerName + "\n");
         receipt.append("Sandwiches: \n");
         sandwiches.forEach(s -> receipt.append("- ").append(s).append("\n"));
@@ -70,12 +69,20 @@ public class Order {
         receipt.append("Chips: \n");
         chips.forEach(c -> receipt.append("- ").append(c).append("\n"));
         receipt.append("\nTotal Price: $").append(calculatePrice());
+        receipt.append("================");
         return receipt.toString();
     }
-    public static void saveOrder(Order order) {
-
+    public static void saveReceipt() {
+        String fileName = generateReceiptFileName();
     }
     public static List<Order> loadOrders() {
         List<Order> orders = new ArrayList<>();
+        return orders;
     }
+    public static String generateReceiptFileName() {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        return now.format(formatter) + ".txt";
+    }
+
 }
