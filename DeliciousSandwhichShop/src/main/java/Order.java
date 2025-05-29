@@ -8,26 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    private String orderNumber;
     private String customerName;
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
-    private static int lastOrderNumber = 0001;
 
 
     public Order(String customerName) {
-        this.orderNumber = generateOrderNumber();
         this.customerName = customerName;
         this.sandwiches = new ArrayList<>();
         this.chips =  new ArrayList<>();
         this.drinks =  new ArrayList<>();
-    }
-    public String getOrderNumber() {
-        return orderNumber;
-    }
-    public static String generateOrderNumber() {
-        return "ORDER" + (++lastOrderNumber);
     }
     public String getCustomerName() {
         return customerName;
@@ -63,8 +54,8 @@ public class Order {
     public String generateReceipt() {
         StringBuilder receipt = new StringBuilder();
         receipt.append("====RECEIPT====\n");
-        receipt.append("Gio's DELI-cious Sandwiches\n\n");
-        receipt.append("Order Number: ").append(orderNumber).append("\n").append("Customer Name: " + customerName + "\n");
+        receipt.append("Gio's DELI-cious Sandwiches\n");
+        receipt.append("\n").append("Customer Name: " + customerName + "\n");
         sandwiches.forEach(s -> receipt.append(" ").append(s).append("\n"));
         receipt.append("Drinks: \n");
         drinks.forEach(d -> receipt.append("- ").append(d).append("\n"));
