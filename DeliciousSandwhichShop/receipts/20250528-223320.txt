@@ -1,0 +1,12 @@
+====RECIEPT====Gio's DELI-cious Sandwiches
+
+Order Number: ORD001
+Customer Name: John Doe
+Sandwiches: 
+- Sandwich@7530d0a
+Drinks: 
+- LARGE Cola ($3.0)
+Chips: 
+- BBQ Chips ($1.5)
+
+Total Price: $12.2================

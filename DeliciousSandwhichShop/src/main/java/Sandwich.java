@@ -51,17 +51,7 @@ public class Sandwich {
         double toppingCost = toppings.stream().mapToDouble(t -> t.calculateCost(size)).sum();
         return basePrice + toppingCost;
     }
-    public void displayOrderDetails() {
-        System.out.println("Sandwich Size: " + size);
-        System.out.println("Bread Type: " + breadType);
-        System.out.println("Toasted: " + (isToasted ? "Yes" : "No"));
-        System.out.println("Toppings; ");
-
-        for (Topping topping : toppings) {
-            System.out.println("  " + topping);
-        }
-        System.out.println("Total: $" + calculateCost());
-    }
+    //for display sandwich details in receipt
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
