@@ -1,0 +1,24 @@
+====RECEIPT====
+Gio's DELI-cious Sandwiches
+
+Customer Name: John Pork
+ 
+===== Sandwich Details =====
+Size: LARGE
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+  - HAM
+  - CHEDDAR_CHEESE
+  - PEPPERS
+  - CUCUMBERS
+Total Price: $13.75
+============================
+
+Drinks: 
+- MEDIUM Lemonade ($2.50)
+Chips: 
+
+Total Price: $16.25
+
+================

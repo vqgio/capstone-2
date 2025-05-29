@@ -1,0 +1,25 @@
+====RECEIPT====
+Gio's DELI-cious Sandwiches
+
+Customer Name: Gio
+ 
+===== Sandwich Details =====
+Size: MEDIUM
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+  - STEAK
+  - PEPPERS
+  - JALAPENOS
+  - GUACAMOLE
+Total Price: $9.00
+============================
+
+Drinks: 
+- MEDIUM Iced Tea ($2.50)
+Chips: 
+- BBQ Chips ($1.50)
+
+Total Price: $13.00
+
+================
