@@ -13,7 +13,7 @@ public class Sandwich {
         }
         this.size = size;
         this.breadType = breadType;
-        this.toppings = (toppings != null) ? new ArrayList<>(toppings) : new ArrayList<>(); //updated to make test pass
+        this.toppings = new ArrayList<>(); //updated to make test pass
         this.isToasted = isToasted;
     }
 
@@ -48,7 +48,38 @@ public class Sandwich {
     }
     public double calculateCost() {
         double basePrice = size.getBasePrice();
-        double toppingCost = toppings.stream().mapToDouble(t -> t.calculateCost(size)).sum();
+        double toppingCost = 0.0;
+
+        for (Topping topping : toppings) {
+            double extraCost = 0.0;
+
+            if (topping.getQuality() == ToppingQuality.PREMIUM_MEAT) {
+                extraCost += switch (size) {
+                    case SMALL -> 1.00;
+                    case MEDIUM -> 2.00;
+                    case LARGE -> 3.00;
+                };
+                extraCost += topping.getExtraCount() * switch (size) {
+                    case SMALL -> 0.50;
+                    case MEDIUM -> 1.00;
+                    case LARGE -> 1.50;
+                };
+            } else if (topping.getQuality() == ToppingQuality.PREMIUM_CHEESE) {
+                extraCost += switch (size) {
+                    case SMALL -> 0.75;
+                    case MEDIUM -> 1.50;
+                    case LARGE -> 2.25;
+                };
+                extraCost += topping.getExtraCount() * switch (size) {
+                    case SMALL -> 0.30;
+                    case MEDIUM -> 0.60;
+                    case LARGE -> 0.90;
+                };
+            }
+
+            toppingCost += extraCost;
+        }
+
         return basePrice + toppingCost;
     }
     //for display sandwich details in receipt

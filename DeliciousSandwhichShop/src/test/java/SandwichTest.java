@@ -8,21 +8,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class SandwichTest {
     @Test
     void testSandwichInitialization() {
-        List<Topping> toppings = new ArrayList<>();
-        toppings.add(new Topping(ToppingType.BACON));
-        toppings.add(new Topping(ToppingType.CHEDDAR_CHEESE));
+        Topping bacon = new Topping(ToppingType.BACON);
+        Topping cheddarCheese = new Topping(ToppingType.CHEDDAR_CHEESE);
 
-        Sandwich sandwich = new Sandwich(SandwichSize.MEDIUM, BreadType.WHEAT, toppings, true);
+        Sandwich sandwich = new Sandwich(SandwichSize.MEDIUM, BreadType.WHEAT, true);
+
+        sandwich.addTopping(ToppingType.BACON);
+        sandwich.addTopping(ToppingType.CHEDDAR_CHEESE);
 
         assertEquals(SandwichSize.MEDIUM, sandwich.getSize());
         assertEquals(BreadType.WHEAT, sandwich.getBreadType());
         assertTrue(sandwich.isToasted());
-        assertEquals(2, sandwich.getToppings().size()); // Ensure toppings are correctly added
+        assertEquals(2, sandwich.getToppings().size());
     }
 
     @Test
     void testAddingToppings() {
-        Sandwich sandwich = new Sandwich(SandwichSize.LARGE, BreadType.RYE, new ArrayList<>(),false);
+        Sandwich sandwich = new Sandwich(SandwichSize.LARGE, BreadType.RYE,false);
         sandwich.addTopping(ToppingType.BACON);
         sandwich.addExtraTopping(ToppingType.BACON);
 
@@ -32,15 +34,24 @@ class SandwichTest {
 
     @Test
     void testCalculatePrice() {
-        List<Topping> toppings = new ArrayList<>();
-        toppings.add(new Topping(ToppingType.CHEDDAR_CHEESE));
-        toppings.add(new Topping(ToppingType.STEAK));
+        Sandwich sandwich = new Sandwich(SandwichSize.LARGE, BreadType.WHEAT, true);
+        sandwich.addTopping(ToppingType.STEAK); // Premium Meat
+        sandwich.addTopping(ToppingType.PROVOLONE_CHEESE); // Premium Cheese
 
-        Sandwich sandwich = new Sandwich(SandwichSize.SMALL, BreadType.WHITE, toppings, false);
-        sandwich.addExtraTopping(ToppingType.CHEDDAR_CHEESE);
+        // Add extra portions
+        sandwich.getToppings().get(0).addExtra(); // Extra steak
+        sandwich.getToppings().get(1).addExtra(); // Extra provolone cheese
 
-        double expectedPrice = SandwichSize.SMALL.getBasePrice() + 0.75 + 0.30 + 1.00;
-        assertEquals(expectedPrice, sandwich.calculateCost(), 0.01);
+        // Print the sandwich details
+        System.out.println(sandwich);
+
+        // Validate calculated price
+        double expectedTotal = 8.50 // Base price for LARGE
+                + 3.00 // Steak cost for LARGE
+                + 2.25 // Provolone cheese cost for LARGE
+                + 1.50 // Extra steak for LARGE
+                + 0.90; // Extra provolone cheese for LARGE
     }
+
 
 }

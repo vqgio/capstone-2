@@ -65,7 +65,6 @@ public class Order {
         receipt.append("====RECEIPT====\n");
         receipt.append("Gio's DELI-cious Sandwiches\n\n");
         receipt.append("Order Number: ").append(orderNumber).append("\n").append("Customer Name: " + customerName + "\n");
-//        receipt.append("Sandwiches: \n");
         sandwiches.forEach(s -> receipt.append(" ").append(s).append("\n"));
         receipt.append("Drinks: \n");
         drinks.forEach(d -> receipt.append("- ").append(d).append("\n"));
