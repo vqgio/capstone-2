@@ -93,7 +93,7 @@ public class Order {
     }
     public static String generateReceiptFileName() {
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
         return now.format(formatter) + ".txt";
     }
 
