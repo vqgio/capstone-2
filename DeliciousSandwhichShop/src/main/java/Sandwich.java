@@ -7,7 +7,7 @@ public class Sandwich {
     private List<Topping> toppings;
     private boolean isToasted;
 
-    public Sandwich(SandwichSize size, BreadType breadType, List<Topping> toppings, boolean isToasted) {
+    public Sandwich(SandwichSize size, BreadType breadType, boolean isToasted) {
         if (size == null || breadType == null) {
             throw new IllegalArgumentException("Cant have a real sandwich without bread! Start by picking a size and a bread type.");
         }
@@ -62,5 +62,26 @@ public class Sandwich {
         }
         System.out.println("Total: $" + calculateCost());
     }
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n===== Sandwich Details =====\n");
+        sb.append("Size: ").append(size).append("\n");
+        sb.append("Bread Type: ").append(breadType).append("\n");
+        sb.append("Toasted: ").append(isToasted ? "Yes" : "No").append("\n");
+        sb.append("Toppings:\n");
+
+        if (toppings.isEmpty()) {
+            sb.append("  - No toppings added\n");
+        } else {
+            toppings.forEach(t -> sb.append("  - ").append(t).append("\n"));
+        }
+
+        sb.append("Total Price: $").append(String.format("%.2f", calculateCost())).append("\n");
+        sb.append("============================\n");
+
+        return sb.toString();
+    }
+
 
 }

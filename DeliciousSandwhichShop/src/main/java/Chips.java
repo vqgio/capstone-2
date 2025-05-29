@@ -16,6 +16,6 @@ public class Chips {
 
     @Override
     public String toString() {
-        return flavor + " Chips ($" + price + ")";
+        return flavor + " Chips ($" + String.format("%.2f", price) + ")";
     }
 }

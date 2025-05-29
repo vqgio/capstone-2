@@ -59,22 +59,33 @@ public class Order {
     }
     public String generateReceipt() {
         StringBuilder receipt = new StringBuilder();
-        receipt.append("====RECIEPT====");
+        receipt.append("====RECEIPT====\n");
         receipt.append("Gio's DELI-cious Sandwiches\n\n");
         receipt.append("Order Number: " + orderNumber + "\n").append("Customer Name: " + customerName + "\n");
-        receipt.append("Sandwiches: \n");
-        sandwiches.forEach(s -> receipt.append("- ").append(s).append("\n"));
+//        receipt.append("Sandwiches: \n");
+        sandwiches.forEach(s -> receipt.append(" ").append(s).append("\n"));
         receipt.append("Drinks: \n");
         drinks.forEach(d -> receipt.append("- ").append(d).append("\n"));
         receipt.append("Chips: \n");
         chips.forEach(c -> receipt.append("- ").append(c).append("\n"));
-        receipt.append("\nTotal Price: $").append(calculatePrice());
-        receipt.append("================");
+        receipt.append("\nTotal Price: $").append(String.format("%.2f", calculatePrice())).append("\n");
+        receipt.append("\n================");
         return receipt.toString();
     }
-    public static void saveReceipt() {
+    public void saveReceipt() {
+        String filePath = "C:\\Users\\rsant\\pluralsight\\capstone-2\\DeliciousSandwhichShop\\src\\main\\resources\\receipts";
         String fileName = generateReceiptFileName();
-        File receiptsFolder = new File("receipts");
+        File receiptsFolder = new File(filePath);
+        if(!receiptsFolder.exists()) {
+            receiptsFolder.mkdir();
+        }
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(receiptsFolder, fileName)))) {
+            writer.write(generateReceipt());
+            writer.flush();
+            System.out.println("Receipt saved Successfully" + fileName);
+        } catch (IOException e) {
+            System.err.println("Failed to save receipt" + e.getMessage());
+        }
     }
     public static List<Order> loadOrders() {
         List<Order> orders = new ArrayList<>();
