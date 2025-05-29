@@ -13,10 +13,11 @@ public class Order {
     private List<Sandwich> sandwiches;
     private List<Drink> drinks;
     private List<Chips> chips;
+    private static int lastOrderNumber = 0001;
 
 
-    public Order(String orderNumber, String customerName) {
-        this.orderNumber = orderNumber;
+    public Order(String customerName) {
+        this.orderNumber = generateOrderNumber();
         this.customerName = customerName;
         this.sandwiches = new ArrayList<>();
         this.chips =  new ArrayList<>();
@@ -25,7 +26,9 @@ public class Order {
     public String getOrderNumber() {
         return orderNumber;
     }
-
+    public static String generateOrderNumber() {
+        return "ORDER" + (++lastOrderNumber);
+    }
     public String getCustomerName() {
         return customerName;
     }
@@ -61,7 +64,7 @@ public class Order {
         StringBuilder receipt = new StringBuilder();
         receipt.append("====RECEIPT====\n");
         receipt.append("Gio's DELI-cious Sandwiches\n\n");
-        receipt.append("Order Number: " + orderNumber + "\n").append("Customer Name: " + customerName + "\n");
+        receipt.append("Order Number: ").append(orderNumber).append("\n").append("Customer Name: " + customerName + "\n");
 //        receipt.append("Sandwiches: \n");
         sandwiches.forEach(s -> receipt.append(" ").append(s).append("\n"));
         receipt.append("Drinks: \n");
