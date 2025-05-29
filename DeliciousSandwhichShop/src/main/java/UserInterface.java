@@ -7,8 +7,6 @@ public class UserInterface {
         System.out.println(" Welcome to Gio's DELI-cious Sandwich Shop!");
         Order order = new Order(getCustomerName());
 
-        if (order == null) return; // User chose to exit
-
         Sandwich sandwich = createSandwich();
         if (sandwich == null) return;
         order.addSandwich(sandwich);
