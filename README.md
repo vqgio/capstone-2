@@ -9,16 +9,16 @@ Key Features
 ✅ Ability to exit (q) at any point during order creation
 
 🚀 Usage Guide
-1️⃣ Start the program
-2️⃣ Enter your name
-3️⃣ Select sandwich size and bread type
-4️⃣ Choose toppings, with options for extra meat & cheese
-5️⃣ Add a drink and chips (optional)
-6️⃣ Receive a formatted receipt with correct pricing
-7️⃣ The receipt is saved automatically for future reference
+-1️⃣ Start the program
+-2️⃣ Enter your name
+-3️⃣ Select sandwich size and bread type
+-4️⃣ Choose toppings, with options for extra meat & cheese
+-5️⃣ Add a drink and chips (optional)
+-6️⃣ Receive a formatted receipt with correct pricing
+-7️⃣ The receipt is saved automatically for future reference
 
-📜 Example CLI Interaction
-🛒 Welcome to Gio's DELI-cious Sandwich Shop!
+-📜 Example CLI Interaction
+-🛒 Welcome to Gio's DELI-cious Sandwich Shop!
 
 Enter your name (or 'q' to quit): Gio
 
