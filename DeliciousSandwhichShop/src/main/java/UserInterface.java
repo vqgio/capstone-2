@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UserInterface {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public void display() {
         System.out.println(" Welcome to Gio's DELI-cious Sandwich Shop!");
         Order order = new Order(getCustomerName());
 
