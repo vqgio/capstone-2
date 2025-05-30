@@ -35,7 +35,7 @@ public class UserInterface {
     }
 
     private static Sandwich createSandwich() {
-        System.out.println("\n Let's customize your sandwich!");
+        System.out.println("\nLet's customize your sandwich!");
 
         SandwichSize size = selectSandwichSize();
         if (size == null) return null;
@@ -50,9 +50,23 @@ public class UserInterface {
         while (askYesNo("Do you want to add a topping? (or 'q' to finish)")) {
             ToppingType topping = selectTopping();
             if (topping == null) break;
-            sandwich.addTopping(topping);
+
+            Topping newTopping = new Topping(topping);
+
+            if (topping.getQuality() == ToppingQuality.PREMIUM_MEAT) {
+                if (askYesNo("Would you like extra " + topping.name().toLowerCase() + "?")) {
+                    newTopping.addExtra();
+                }
+            } else if (topping.getQuality() == ToppingQuality.PREMIUM_CHEESE) {
+                if (askYesNo("Would you like extra " + topping.name().toLowerCase() + "?")) {
+                    newTopping.addExtra();
+                }
+            }
+            sandwich.addTopping(newTopping.getType());
         }
+
         return sandwich;
+
     }
     private static SandwichSize selectSandwichSize() {
         System.out.println("Choose a size (or 'X' to quit):");
@@ -112,10 +126,19 @@ public class UserInterface {
     }
 
     private static boolean askYesNo(String question) {
-        System.out.print(question + " (yes/no): ");
-        String response = scanner.nextLine().trim().toLowerCase();
-        if (response.equalsIgnoreCase("X")) return false;
-        return response.startsWith("y");
+        while (true) {
+            System.out.print(question + " (yes/no): ");
+            String response = scanner.nextLine().trim().toLowerCase();
+
+            if (response.equals("yes")) {
+                return true;
+            } else if (response.equals("no")) {
+                return false;
+            } else {
+                System.out.println("Invalid input! Please type yes or no.");
+            }
+        }
+
     }
 
 }

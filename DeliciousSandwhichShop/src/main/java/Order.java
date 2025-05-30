@@ -49,7 +49,9 @@ public class Order {
         total += sandwiches.stream().mapToDouble(Sandwich::calculateCost).sum();
         total += drinks.stream().mapToDouble(Drink::getPrice).sum();
         total += chips.stream().mapToDouble(Chips::getPrice).sum();
+
         return total;
+
     }
     public String generateReceipt() {
         StringBuilder receipt = new StringBuilder();
