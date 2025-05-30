@@ -17,8 +17,8 @@ Key Features
 6️⃣ Receive a formatted receipt with correct pricing
 7️⃣ The receipt is saved automatically for future reference
 
-📜 Example CLI Interaction
-🛒 Welcome to Gio's DELI-cious Sandwich Shop!
+-📜 Example CLI Interaction
+-🛒 Welcome to Gio's DELI-cious Sandwich Shop!
 
 Enter your name (or 'q' to quit): Gio
 
