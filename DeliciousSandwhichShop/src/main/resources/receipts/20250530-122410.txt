@@ -1,0 +1,22 @@
+====RECEIPT====
+Gio's DELI-cious Sandwiches
+
+Customer Name: Gio
+ 
+===== Sandwich Details =====
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+  - No toppings added
+Total Price: $5.50
+============================
+
+Drinks: 
+- SMALL coke ($2.00)
+Chips: 
+- bbq Chips ($1.50)
+
+Total Price: $9.00
+
+================
