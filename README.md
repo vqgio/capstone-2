@@ -24,7 +24,7 @@ Key Features
 ![image](https://github.com/user-attachments/assets/de0291b1-aa0d-4739-bc0d-98e9784da420)
 ![image](https://github.com/user-attachments/assets/44d575a6-0567-4a6b-84f5-0dccbe3ad06f)
 
-It would print out the receipt once the order is completed.
+-✅ It will print out the receipt once the order is completed.
 
 ![image](https://github.com/user-attachments/assets/f867c757-4c3e-4ebf-995d-f8deb2ffabbb)
 
