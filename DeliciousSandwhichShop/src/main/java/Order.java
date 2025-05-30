@@ -82,10 +82,6 @@ public class Order {
             System.err.println("Failed to save receipt" + e.getMessage());
         }
     }
-    public static List<Order> loadOrders() {
-        List<Order> orders = new ArrayList<>();
-        return orders;
-    }
     public static String generateReceiptFileName() {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
