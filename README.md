@@ -18,39 +18,8 @@ Key Features
 7️⃣ The receipt is saved automatically for future reference
 
 -📜 Example CLI Interaction
--🛒 Welcome to Gio's DELI-cious Sandwich Shop!
+![image](https://github.com/user-attachments/assets/4b5df3b5-293b-470e-a511-fe469426f2ef)
 
-Enter your name (or 'q' to quit): Gio
-
- Choose a size:
-1. SMALL
-2. MEDIUM
-3. LARGE
-Enter choice (1-3) or 'q' to quit: 2
-
-Choose a bread type:
-1. WHITE
-2. WHEAT
-3. RYE
-Enter choice (1-3) or 'q' to quit: 2
-
-Add toppings:
-Do you want Bacon? (yes/no): yes
-Would you like extra Bacon? (yes/no): yes
-
-Do you want Cheddar Cheese? (yes/no): yes
-Would you like extra Cheddar Cheese? (yes/no): no
-
-Receipt:
-==== RECEIPT ====
-Customer Name: Gio
-Sandwich:
-- MEDIUM WHEAT Toasted
-  - Bacon (extra x1) ... $2.00
-  - Cheddar Cheese ... $1.50
-Total Price: $10.50
-===================
-Receipt saved successfully!
 
 🏗 Future Enhancements
 ✨ Allow multiple sandwiches per order
