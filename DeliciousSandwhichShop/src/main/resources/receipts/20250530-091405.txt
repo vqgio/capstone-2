@@ -1,0 +1,20 @@
+====RECEIPT====
+Gio's DELI-cious Sandwiches
+
+Customer Name: Gio
+ 
+===== Sandwich Details =====
+Size: SMALL
+Bread Type: WHITE
+Toasted: Yes
+Toppings:
+  - STEAK
+Total Price: $6.50
+============================
+
+Drinks: 
+Chips: 
+
+Total Price: $6.50
+
+================
