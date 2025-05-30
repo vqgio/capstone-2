@@ -20,6 +20,7 @@ Key Features
 -📜 Example CLI Interaction
 
 ![image](https://github.com/user-attachments/assets/4b5df3b5-293b-470e-a511-fe469426f2ef)
+
 -This picture also shows the error code if you don't type the proper answers within the question.
 
 ![image](https://github.com/user-attachments/assets/de0291b1-aa0d-4739-bc0d-98e9784da420)
