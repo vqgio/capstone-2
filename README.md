@@ -18,7 +18,9 @@ Key Features
 7️⃣ The receipt is saved automatically for future reference
 
 -📜 Example CLI Interaction
+
 ![image](https://github.com/user-attachments/assets/4b5df3b5-293b-470e-a511-fe469426f2ef)
+![image](https://github.com/user-attachments/assets/de0291b1-aa0d-4739-bc0d-98e9784da420)
 
 
 🏗 Future Enhancements
