@@ -106,7 +106,7 @@ public class UserInterface {
 
         return new Chips(flavor);
     }
-
+        //generic type
     private static <T> T chooseOption(T[] options) {
         for (int i = 0; i < options.length; i++) {
             System.out.println((i + 1) + ". " + options[i]);
